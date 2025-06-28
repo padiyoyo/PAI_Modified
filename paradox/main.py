@@ -74,6 +74,8 @@ async def run_loop():
     retry = 1
     while alarm is not None:
         logger.info("Starting...")
+        logger.info("1. Test ------- by Edy-------")
+
         retry_time_wait = 2 ^ retry
         retry_time_wait = 30 if retry_time_wait > 30 else retry_time_wait
 
@@ -122,7 +124,7 @@ def main(args):
     configure_logger(logger)
 
     logger.info(f"Starting Paradox Alarm Interface {VERSION}")
-    logger.info(f"Test ------- by Edy-------")
+    logger.info("2. Test ------- by Edy-------")
     logger.info(f"Config loaded from {cfg.CONFIG_FILE_LOCATION}")
 
     logger.info(f"Console Log level set to {cfg.LOGGING_LEVEL_CONSOLE}")
