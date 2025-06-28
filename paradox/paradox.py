@@ -76,6 +76,7 @@ class Paradox:
                 )
             elif cfg.CONNECTION_TYPE == "IP":
                 logger.info("Using IP Connection")
+                logger.info("6. Test - Padi")
 
                 if cfg.IP_CONNECTION_BARE:
                     from paradox.connections.ip.connection import BareIPConnection
@@ -122,12 +123,15 @@ class Paradox:
 
         self.run_state = RunState.INIT
         logger.info("Connecting to interface")
+        logger.info("3. Test ------- by Edy-------")
+
         if not await self.connection.connect():
             self.run_state = RunState.ERROR
             logger.error("Failed to connect to interface")
             return False
 
         logger.info("Connecting to Panel")
+        logger.info("4. Test ------- by Edy-------")
 
         if not self.panel:
             self.panel = create_panel(self)
@@ -211,6 +215,8 @@ class Paradox:
             await self.panel.load_memory()
 
             logger.info("Running")
+            logger.info("7. Test - Padi")
+
             self.run_state = RunState.RUN
             self.request_status_refresh()  # Trigger status update
 

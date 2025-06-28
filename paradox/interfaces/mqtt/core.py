@@ -137,6 +137,7 @@ class MQTTConnection():
                 self.state = ConnectionState.CONNECTING
 
                 logger.info("MQTT loop started")
+                logger.info("9. MQTT test")
             except socket.gaierror:
                 logger.exception(
                     "Failed to connect to MQTT (%s:%d)", cfg.MQTT_HOST, cfg.MQTT_PORT
@@ -202,6 +203,7 @@ class MQTTConnection():
 
     def _on_disconnect_cb(self, userdata, rc, properties=None):
         # called on Thread-6
+        logger.info("9. TEst herhehrere")
         if rc == MQTT_ERR_SUCCESS:
             logger.info("MQTT Broker Disconnected")
         else:
@@ -211,6 +213,8 @@ class MQTTConnection():
         self._call_registars("on_disconnect", self.client, userdata, rc)
 
     def disconnect(self, reasoncode=None, properties=None):
+        logger.info("10. Disconnection testesf herhehrere")
+
         self.state = ConnectionState.DISCONNECTING
         self._report_pai_status("offline")
         self.client.disconnect()
